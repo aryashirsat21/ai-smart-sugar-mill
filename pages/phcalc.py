@@ -4,9 +4,7 @@ import random
 import time
 from sklearn.linear_model import LinearRegression
 
-# -----------------------------
 # Training dataset (simulated sugar factory data)
-# -----------------------------
 
 data = {
     "pH":[4.8,5.0,5.2,5.4,5.6],
@@ -24,9 +22,7 @@ y = df["lime_dose"]
 model = LinearRegression()
 model.fit(X,y)
 
-# -----------------------------
 # Streamlit UI
-# -----------------------------
 
 st.title("AI Sugarcane Juice Clarification System")
 
@@ -38,9 +34,7 @@ sensor_data = []
 
 for i in range(30):
 
-    # -----------------------------
     # Simulated Sensors
-    # -----------------------------
 
     ph = round(random.uniform(4.8,5.6),2)          # pH (unitless)
     temp = random.randint(70,80)                   # °C
@@ -66,9 +60,7 @@ for i in range(30):
 
     with placeholder.container():
 
-        # -----------------------------
         # Live Metrics
-        # -----------------------------
 
         col1,col2 = st.columns(2)
         col3,col4 = st.columns(2)
@@ -79,17 +71,13 @@ for i in range(30):
         col3.metric("Turbidity (NTU)", turbidity)
         col4.metric("Brix (°Bx)", brix)
 
-        # -----------------------------
         # AI Recommendation
-        # -----------------------------
 
         st.success(
             f"Recommended Lime Dose: {prediction[0]:.2f} kg per 1000 L juice"
         )
 
-        # -----------------------------
         # Sensor Trend Graph
-        # -----------------------------
 
         st.subheader("Sensor Trends")
 

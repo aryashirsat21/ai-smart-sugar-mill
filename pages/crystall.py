@@ -13,9 +13,7 @@ st.write(
 "and supersaturation sensors to optimize crystal growth."
 )
 
-# -----------------------------
 # Training dataset (simulated)
-# -----------------------------
 
 data = pd.DataFrame({
 
@@ -38,9 +36,7 @@ placeholder = st.empty()
 
 history = []
 
-# -----------------------------
 # Live simulation loop
-# -----------------------------
 
 while True:
 

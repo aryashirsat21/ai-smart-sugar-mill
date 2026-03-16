@@ -6,9 +6,8 @@ from sklearn.linear_model import LinearRegression
 
 st.set_page_config(page_title="AI Sugar Mill Optimization", layout="wide")
 
-# ----------------------------
 # Card UI
-# ----------------------------
+
 def render_card(title,value,unit):
 
     st.markdown(
@@ -34,9 +33,7 @@ st.write(
 "to predict optimal extraction efficiency."
 )
 
-# --------------------------------
 # Training Dataset
-# --------------------------------
 
 data = pd.DataFrame({
 
@@ -60,9 +57,7 @@ history = []
 
 while True:
 
-    # ----------------------------
     # Simulated Sensors
-    # ----------------------------
 
     mill_load = random.randint(60,80)            # TPH
     roller_pressure = random.randint(180,220)    # bar
@@ -108,9 +103,7 @@ while True:
 
         st.markdown("---")
 
-        # --------------------------------
         # AI Efficiency Prediction
-        # --------------------------------
 
         st.success(
         f"Predicted Extraction Efficiency: **{efficiency:.2f}%**"
@@ -127,17 +120,13 @@ while True:
 
         st.markdown("---")
 
-        # --------------------------------
         # Efficiency Trend
-        # --------------------------------
 
         st.subheader("📈 Efficiency Trend")
 
         st.line_chart(df_history["Extraction Efficiency (%)"])
 
-        # --------------------------------
         # Historical Data
-        # --------------------------------
 
         st.subheader("📊 Historical Sensor Data")
 

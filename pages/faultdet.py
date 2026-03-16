@@ -8,9 +8,7 @@ st.set_page_config(page_title="AI Machine Monitoring", layout="wide")
 
 st.title("AI Driven Machine Monitoring and Fault Detection/Prediction System")
 
-# ---------------------------
-# Train AI Fault Detection Model
-# ---------------------------
+# Training AI Fault Detection Model
 
 X = [
     [55,15,110,1000],
@@ -28,18 +26,14 @@ y = [0,0,0,0,1,1,1,1]
 model = RandomForestClassifier()
 model.fit(X,y)
 
-# ---------------------------
 # Store sensor history
-# ---------------------------
 
 if "history" not in st.session_state:
     st.session_state.history = pd.DataFrame(
         columns=["Temp","Vibration","Pressure","RPM"]
     )
 
-# ---------------------------
 # Sensor Simulation
-# ---------------------------
 
 def generate_sensor_data():
 
@@ -50,9 +44,7 @@ def generate_sensor_data():
 
     return round(temp,2),round(vib,2),round(press,2),round(rpm,2)
 
-# ---------------------------
 # Fault Logic
-# ---------------------------
 
 def check_fault(temp,vib,press,rpm):
 
@@ -63,9 +55,7 @@ def check_fault(temp,vib,press,rpm):
 
     return fault_temp,fault_vib,fault_press,fault_rpm
 
-# ---------------------------
 # Machine Health Score
-# ---------------------------
 
 def health_score(temp,vib,press,rpm):
 
@@ -82,9 +72,7 @@ def health_score(temp,vib,press,rpm):
 
     return max(score,0)
 
-# ---------------------------
 # Predict Future Fault
-# ---------------------------
 
 def predict_future_fault(history):
 
